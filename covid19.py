@@ -65,8 +65,8 @@ def make_graph(country, start_date, show_score = False):
             pass
     
     df = pd.DataFrame(data, columns=header)
-    #df = df.drop(columns= ['Province/State','Country/Region','Latitude', 'Longitude'])
-    df = df.drop(columns= ['Latitude', 'Longitude'])
+    df = df.drop(columns= ['Province/State','Country/Region','Latitude', 'Longitude'])
+    #df = df.drop(columns= ['Latitude', 'Longitude'])
     
     df['Confirmed'] = df['Confirmed'].astype('int')
     df['Recovered'] = df['Recovered'].astype('int')
