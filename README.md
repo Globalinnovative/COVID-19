@@ -1,35 +1,84 @@
 # COVID-19
-Some useful graph to see how the situation of the novel coronavirus is evolving around the World
+Some useful graph to see how the situation of the novel coronavirus is evolving around the World.
 
 # Script
-It is based on the database from the [Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19)
+It is based on the database from the [Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19).
 
 # Graph
-### Europe
-![Italy](/graph/Italy.png)
-![France](/graph/France.png)
+Updated at $date.
 
-### China
-![China](/graph/China.png)
-![Hubei](/graph/Hubei.png)
-![Zhejiang](/graph/Zhejiang.png)
+## Asia
+![](/graph/China.png)
 
-### United States
-![US](/graph/US.png)
+![](/graph/Hubei.png)
 
-### Canada
-![Canada](/graph/Canada.png)
-![Toronto](/graph/Toronto.png)
+![](/graph/Zhejiang.png)
 
-### Australia
-![Australia](/graph/Australia.png)
+![](/graph/South%20Korea.png)
 
-### Other
-![Iran](/graph/Iran.png)
-![South Korea](/graph/South Korea.png)
+![](/graph/Iraq.png)
 
-## Score
-Also i made a *dirty* attempt to create a "score" to measure how well a country is responding to the COVID emergency (the highter the better):
-![China Score](/graph/China_score.png)
-![Italy Score](/graph/Italy_score.png)
+![](/graph/Thailand.png)
+
+![](/graph/Japan.png)
+
+![](/graph/Taiwan.png)
+
+![](/graph/Macau.png)
+
+![](/graph/Singapore.png)
+
+![](/graph/Vietnam.png)
+
+![](/graph/Nepal.png)
+
+![](/graph/India.png)
+
+![](/graph/Hong%20Kong.png)
+
+![](/graph/Iran.png)
+
+![](/graph/Russia.png)
+
+## Europe
+![](/graph/Italy.png)
+
+![](/graph/France.png)
+
+![](/graph/Iceland.png)
+
+![](/graph/Germany.png)
+
+![](/graph/UK.png)
+
+![](/graph/Finland.png)
+
+![](/graph/Sweden.png)
+
+![](/graph/Belgium.png)
+
+## Americas
+![](/graph/US.png)
+
+![](/graph/Canada.png)
+
+![](/graph/Argentina.png)
+
+![](/graph/Cambodia.png)
+
+![](/graph/Peru.png)
+
+## Australia
+![](/graph/Australia.png)
+
+## Africa
+![](/graph/Egypt.png)
+
+# Score
+Also I made a *dirty* attempt to create a "score" to measure how well a country is responding to the COVID emergency (the highter the better):
+
+![](/graph/China_score.png)
+
+![](/graph/Italy_score.png)
+
 Basically the score is: `(daily recovered / all positives) / ((daily confirmed / (population of the country / 10000)) * (daily deaths / all positives))`

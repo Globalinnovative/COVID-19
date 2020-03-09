@@ -14,7 +14,6 @@ from countryinfo import CountryInfo
 import os
 
 
-
 def make_graph(country, start_date, show_score = False):
     header = ['Province/State','Country/Region','Last Update','Confirmed','Deaths','Recovered','Latitude','Longitude']
     countries_split_in_provinces =  ['US', 'China', 'Canada', 'Australia']
@@ -149,35 +148,59 @@ def make_graph(country, start_date, show_score = False):
         lines1, labels1 = ax1.get_legend_handles_labels()
         lines2, labels2 = ax2.get_legend_handles_labels()
         plt.legend(lines1 + lines2, labels1 + labels2, loc='upper left')
-        plt.savefig(os.path.join(graph_path, '{}_{}_score'.format(country, date.today())))
+        plt.savefig(os.path.join(graph_path, '{}_score'.format(country)))
     else:
         ax1.legend(loc='upper left')
-        plt.savefig(os.path.join(graph_path,'{}_{}'.format(country, date.today())))
+        plt.savefig(os.path.join(graph_path, country))
         
     plt.show()
     print('Graph for {} updated at {} created'.format(country, date.today()))
 
 def main():
     start_date = date(2020, 2, 24)   # start date for the graphs
-
-    make_graph('US', start_date)
-    make_graph('King County', start_date)
-    make_graph('Westchester County', start_date)
     
-    make_graph('Italy', start_date)
-    make_graph('Iran', start_date)
-    make_graph('France', start_date)
-    make_graph('South Korea', start_date)
-    
+    # Asia
     make_graph('China', start_date)
     make_graph('Hubei', start_date)
     make_graph('Zhejiang', start_date)
-    
+    make_graph('South Korea', start_date)
+    make_graph('Iraq', start_date)
+    make_graph('Thailand', start_date)
+    make_graph('Japan', start_date)
+    make_graph('Taiwan', start_date)
+    make_graph('Macau', start_date)
+    make_graph('Singapore', start_date)
+    make_graph('Vietnam', start_date)
+    make_graph('Nepal', start_date)
+    make_graph('India', start_date)
+    make_graph('Hong Kong', start_date)
+    make_graph('Iran', start_date)
+    make_graph('Russia', start_date)
+
+    # Europe
+    make_graph('Italy', start_date)
+    make_graph('France', start_date)
+    make_graph('Iceland', start_date)
+    make_graph('Germany', start_date)
+    make_graph('UK', start_date)
+    make_graph('Finland', start_date)
+    make_graph('Sweden', start_date)
+    make_graph('Belgium', start_date)
+  
+    # Americas
+    make_graph('US', start_date)
     make_graph('Canada', start_date)
-    make_graph('Toronto', start_date)
+    make_graph('Argentina', start_date)
+    make_graph('Cambodia', start_date)
+    make_graph('Peru', start_date)
     
+    # Australia
     make_graph('Australia', start_date)
 
+    # Africa
+    make_graph('Egypt', start_date)
+
+    # Score
     make_graph('Italy', start_date, True)
     make_graph('China', start_date, True)
 
