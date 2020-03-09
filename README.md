@@ -1,5 +1,5 @@
 # COVID-19
-Some useful graph to see adn understand how the situation of the novel coronavirus is evolving around the World.
+Some useful graph to see and understand how the novel Coronavirus is evolving around the World.
 
 # Script
 It is based on the database from the [Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19).
@@ -83,7 +83,7 @@ Also I made a *dirty* attempt to create a "score" to measure how well a country 
 
 Basically the score is: `(daily recovered / all positives) / ((daily confirmed / (population of the country / 10000)) * (daily deaths / all positives))`
 # COVID-19
-Some useful graph to see adn understand how the situation of the novel coronavirus is evolving around the World.
+Some useful graph to see and understand how the novel Coronavirus is evolving around the World.
 
 # Script
 It is based on the database from the [Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19).
