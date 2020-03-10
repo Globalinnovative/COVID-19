@@ -89,7 +89,7 @@ Some useful graph to see and understand how the novel Coronavirus is evolving ar
 It is based on the database from the [Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19).
 
 # Graph
-Updated at 2020-03-10.
+Updated at 2020-03-10T12:05:28.
 
 ## Asia
 ![](/graph/China.png)
