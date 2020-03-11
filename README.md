@@ -6,10 +6,10 @@ If you wish to add a Country open an [Issue](https://github.com/aster94/COVID-19
 It is based on the database from the [Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19).
 
 # Graph
-Updated at 2020-03-10 12:34:17.
+Updated at 2020-03-11 12:47:01.
 
 ## Asia
-![](/graph/China.png)
+![](/graph/Mainland%20China.png)
 
 ![](/graph/Hubei.png)
 
@@ -46,6 +46,8 @@ Updated at 2020-03-10 12:34:17.
 
 ![](/graph/France.png)
 
+![](/graph/Spain.png)
+
 ![](/graph/Iceland.png)
 
 ![](/graph/Germany.png)
@@ -60,6 +62,8 @@ Updated at 2020-03-10 12:34:17.
 
 ## Americas
 ![](/graph/US.png)
+
+![](/graph/Washington.png)
 
 ![](/graph/Canada.png)
 
@@ -78,7 +82,7 @@ Updated at 2020-03-10 12:34:17.
 # Score
 Also I made a *dirty* attempt to create a "score" to measure how well a country is responding to the COVID emergency (the highter the better):
 
-![](/graph/China_score.png)
+![](/graph/Mainland%20China_score.png)
 
 ![](/graph/Italy_score.png)
 
