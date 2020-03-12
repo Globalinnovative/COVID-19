@@ -29,7 +29,7 @@ def make_graph(country, start_date, show_score = False):
         try:
             population = CountryInfo(country).population()
         except:
-            country_correction = {'US': 'United States','Mainland China':'China'}
+            country_correction = {'US': 'United States'}
             population = CountryInfo(country_correction[country]).population()
     
     for i in range(delta.days):
@@ -38,8 +38,10 @@ def make_graph(country, start_date, show_score = False):
         r = requests.get(raw_link.format(str_day))
         sub_data = list()
         
-        if day > date(2020, 3, 10):
-            # they changed the name
+        # at JHU changed the name for china
+        if day < date(2020, 3, 11):
+            if country == 'China': country = 'Mainland China'
+        else:
             if country == 'Mainland China': country = 'China'
         
         if r.status_code == 404:
@@ -158,7 +160,7 @@ def make_graph(country, start_date, show_score = False):
     if show_score:
         df['Score'] = df['Score'].astype('int')
     
-    #print(df.to_string())
+    print(df.to_string())
     
     bar_width = 0.2
     opacity = 0.7
@@ -204,7 +206,7 @@ def main():
     start_date = date(2020, 2, 24)   # start date for the graphs
     
     # Asia
-    make_graph('Mainland China', start_date)
+    make_graph('China', start_date)
     make_graph('Hubei', start_date)
     make_graph('Zhejiang', start_date)
     make_graph('South Korea', start_date)
@@ -247,8 +249,8 @@ def main():
 
     # Score
     make_graph('Italy', start_date, True)
-    make_graph('Mainland China', start_date, True)
-    
+    make_graph('China', start_date, True)
+
 if __name__ == "__main__":
     main()
     
