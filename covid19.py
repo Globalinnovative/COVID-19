@@ -32,16 +32,31 @@ def make_graph(country, start_date, show_score = False):
             country_correction = {'US': 'United States','Mainland China':'China'}
             population = CountryInfo(country_correction[country]).population()
     
-    for i in range(delta.days + 1):
-        day = (start_date + timedelta(days=i)).strftime('%m-%d-%Y')
-        r = requests.get(raw_link.format(day))
+    for i in range(delta.days):
+        day = (start_date + timedelta(days=i))
+        str_day = day.strftime('%m-%d-%Y')
+        r = requests.get(raw_link.format(str_day))
         sub_data = list()
+        
+        if day > date(2020, 3, 10):
+            # they changed the name
+            if country == 'Mainland China': country = 'China'
         
         if r.status_code == 404:
             break
         
         if country in countries_split_in_provinces:
             sub_total = {'posit':0, 'death':0, 'recov':0}
+            
+        matches = len(re.findall(country, r.text))
+        if matches == 0:
+            continue
+        elif matches == 1:
+            country_has_provincies = False
+        else:
+            country_has_provincies = True
+            sub_total = {'posit':0, 'death':0, 'recov':0}
+            
         
         rows = r.text.splitlines()
         for row in rows:
@@ -49,30 +64,33 @@ def make_graph(country, start_date, show_score = False):
             # Some country have a comma that creates troubble
             if len(row_slice) == 7 or len(row_slice) == 9:
                 row_slice[0:2] = [''.join(row_slice[0:2])]
-                
+            
             if country in provincies:
                 if re.match(country, row_slice[0]):
                     sub_data = row_slice
-            else: # country not in provincies
-                if re.match(country, row_slice[1]):
-                    sub_data = row_slice
-                
-                    if country in countries_split_in_provinces:
-                        sub_total['posit'] += int(sub_data[3])
-                        sub_total['death'] += int(sub_data[4])
-                        sub_total['recov'] += int(sub_data[5])
+            else:   
+                if country_has_provincies is False:
+                    if re.match(country, row_slice[1]):
+                        sub_data = row_slice
+                else:
+                    if re.match(country, row_slice[1]):
+                        sub_data = row_slice
+                    
+                        if country_has_provincies:
+                            sub_total['posit'] += int(sub_data[3])
+                            sub_total['death'] += int(sub_data[4])
+                            sub_total['recov'] += int(sub_data[5])
 
         if len(sub_data) == 0:
             continue
         else:
-            sub_data[2] = day[:5]
+            sub_data[2] = str_day[:5]
 
-            if country in countries_split_in_provinces:
+            if country_has_provincies:
                 sub_data[3] = sub_total['posit']
                 sub_data[4] = sub_total['death']
                 sub_data[5] = sub_total['recov']
         
-       
         data.append(sub_data)
         
     if len(data) == 1: # skip dataframe with only one entry
@@ -81,7 +99,7 @@ def make_graph(country, start_date, show_score = False):
     df = pd.DataFrame(data, columns=header)
     df = df.drop(columns= ['Province/State','Country/Region','Latitude', 'Longitude'])
     #df = df.drop(columns= ['Latitude', 'Longitude'])
-    
+
     df['Confirmed'] = df['Confirmed'].astype('int')
     df['Recovered'] = df['Recovered'].astype('int')
     df['Deaths'] = df['Deaths'].astype('int')
@@ -187,6 +205,7 @@ def main():
     
     # Asia
     make_graph('Mainland China', start_date)
+    '''
     make_graph('Hubei', start_date)
     make_graph('Zhejiang', start_date)
     make_graph('South Korea', start_date)
@@ -216,7 +235,6 @@ def main():
   
     # Americas
     make_graph('US', start_date)
-    make_graph('Washington', start_date)
     make_graph('Canada', start_date)
     make_graph('Argentina', start_date)
     make_graph('Cambodia', start_date)
@@ -231,7 +249,7 @@ def main():
     # Score
     make_graph('Italy', start_date, True)
     make_graph('Mainland China', start_date, True)
-   
+    '''
 if __name__ == "__main__":
     main()
     
