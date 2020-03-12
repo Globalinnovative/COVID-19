@@ -6,7 +6,7 @@ If you wish to add a Country open an [Issue](https://github.com/aster94/COVID-19
 It is based on the database from the [Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19).
 
 # Graph
-Updated at 2020-03-12 02:23:46.
+Updated at 2020-03-12 02:24:35.
 
 ## Asia
 ![](/graph/Mainland%20China.png)

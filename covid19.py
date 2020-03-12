@@ -205,7 +205,6 @@ def main():
     
     # Asia
     make_graph('Mainland China', start_date)
-    '''
     make_graph('Hubei', start_date)
     make_graph('Zhejiang', start_date)
     make_graph('South Korea', start_date)
@@ -249,7 +248,7 @@ def main():
     # Score
     make_graph('Italy', start_date, True)
     make_graph('Mainland China', start_date, True)
-    '''
+    
 if __name__ == "__main__":
     main()
     
