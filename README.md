@@ -3,10 +3,12 @@ Some useful graph to see and understand how the novel Coronavirus is evolving ar
 If you wish to add a Country open an [Issue](https://github.com/aster94/COVID-19/issues/new).
 
 # Script
-It is based on the database from the [Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19).
+It is based on the database from the [Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19). 
+
+NOTE: The maintainers of the database are facing some problems so some data are not correctly updated for some countries, we all hope that it would be fixed.
 
 # Graph
-Updated at 2020-03-12 02:40:53.
+Updated at 2020-03-19 12:42:14.
 
 ## Asia
 ![](/graph/China.png)
@@ -16,8 +18,6 @@ Updated at 2020-03-12 02:40:53.
 ![](/graph/Zhejiang.png)
 
 ![](/graph/South%20Korea.png)
-
-![](/graph/Iraq.png)
 
 ![](/graph/Thailand.png)
 
@@ -35,9 +35,15 @@ Updated at 2020-03-12 02:40:53.
 
 ![](/graph/India.png)
 
+![](/graph/Bangladesh.png)
+
 ![](/graph/Hong%20Kong.png)
 
 ![](/graph/Iran.png)
+
+![](/graph/Iraq.png)
+
+![](/graph/Saudi%20Arabia.png)
 
 ![](/graph/Russia.png)
 

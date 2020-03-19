@@ -143,11 +143,11 @@ def make_graph(country, start_date, show_score = False):
             df.at[i, 'D-Deaths'] = d_deaths
         
         if show_score:
-            # Edits for the score calulation
+            # Edits for the score calculation
             if d_recovered <= 0: d_recovered = 0.1
             if d_confirmed <= 0: d_confirmed = 0.1
             if d_deaths <= 0: d_deaths = 0.1
-            df.at[i, 'Score'] = round((d_recovered/t_positives)/((d_confirmed/(population/10000)) * (d_deaths/t_positives)))    
+            df.at[i, 'Score'] = round((d_recovered/t_positives)/((d_confirmed/(population/10000)) * (d_deaths/t_positives))) 
 
     if df.empty:
         return
@@ -160,10 +160,11 @@ def make_graph(country, start_date, show_score = False):
     if show_score:
         df['Score'] = df['Score'].astype('int')
     
-    print(df.to_string())
+    #print(df.to_string())
     
     bar_width = 0.2
     opacity = 0.7
+    plt.rcParams["figure.figsize"] = (12, 6)
     steps = bar_width * 3 + bar_width # between a group of three bars
     index = np.arange(0, df.shape[0]/(1/steps), steps) # position of the x-element on the plot
     
@@ -197,14 +198,14 @@ def make_graph(country, start_date, show_score = False):
         plt.savefig(os.path.join(graph_path, '{}_score'.format(country)))
     else:
         ax1.legend(loc='upper left')
-        plt.savefig(os.path.join(graph_path, country))
+        plt.savefig(os.path.join(graph_path, country), figsize=())
         
     plt.show()
     print('Graph for {} updated at {} created'.format(country, date.today()))
 
 def main():
     start_date = date(2020, 2, 24)   # start date for the graphs
-    
+
     # Asia
     make_graph('China', start_date)
     make_graph('Hubei', start_date)
@@ -219,7 +220,9 @@ def main():
     make_graph('Vietnam', start_date)
     make_graph('Nepal', start_date)
     make_graph('India', start_date)
+    make_graph('Bangladesh', start_date)
     make_graph('Hong Kong', start_date)
+    make_graph('Saudi Arabia', start_date)
     make_graph('Iran', start_date)
     make_graph('Russia', start_date)
     
@@ -250,7 +253,9 @@ def main():
     # Score
     make_graph('Italy', start_date, True)
     make_graph('China', start_date, True)
-
+    
+    print('Graph generated')
+    
 if __name__ == "__main__":
     main()
     
